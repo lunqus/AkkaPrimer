@@ -14,6 +14,13 @@ public class PrimerMaster extends AbstractActor {
 
         if(message instanceof  int[]) {
             int[] range = (int[]) message;
+
+            var from = range[0];
+            var to = range[1];
+
+            System.out.println("From: " + from + " To: " + to);
+
+
         }
     }
 }
