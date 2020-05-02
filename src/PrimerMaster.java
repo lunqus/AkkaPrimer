@@ -11,5 +11,9 @@ public class PrimerMaster extends AbstractActor {
 
     private void onReceive(Object message) {
         System.out.println("Called Primer Master, " + message);
+
+        if(message instanceof  int[]) {
+            int[] range = (int[]) message;
+        }
     }
 }

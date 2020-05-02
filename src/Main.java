@@ -10,7 +10,8 @@ public class Main {
 
         ActorRef primerMaster = system.actorOf(Props.create(PrimerMaster.class), "pMaster");
 
-        primerMaster.tell("Calling Primer Master", primerMaster);
+        // primerMaster.tell("Calling Primer Master", primerMaster);
+        primerMaster.tell(new int[] {0, 100}, primerMaster);
 
     }
 }
