@@ -47,6 +47,23 @@ public class PrimerMaster extends AbstractActor {
 
             System.out.println("From: " + from + " To: " + to);
 
+            var totalRange = to - from;
+
+            var rangeLength = totalRange / numOfRoutees;
+
+            for (int i = 0; i < numOfRoutees; i++) {
+                var subFrom = from + (i*rangeLength);
+                var subTo = subFrom + rangeLength-1;
+
+                if(i == numOfRoutees) {
+                    subTo = to;
+                }
+
+                int[] send = {subFrom, subTo};
+
+                workerRouter.route(send, getSelf());
+            }
+
             workerRouter.route("Hello Worker", getSelf());
         }
     }
