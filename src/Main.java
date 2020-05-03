@@ -8,7 +8,7 @@ public class Main {
 
         ActorSystem system = ActorSystem.create("Primer");
 
-        ActorRef primerMaster = system.actorOf(Props.create(PrimerMaster.class), "pMaster");
+        ActorRef primerMaster = system.actorOf(Props.create(PrimerMaster.class, 20));
 
         // primerMaster.tell("Calling Primer Master", primerMaster);
         primerMaster.tell(new int[] {0, 100}, primerMaster);
