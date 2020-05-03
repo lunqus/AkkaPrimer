@@ -21,7 +21,7 @@ public class PrimerMaster extends AbstractActor {
         System.out.println("Number of chunks: " + divide);
 
         for (int i = 0; i < divide; i++) {
-            ActorRef workerActor = getContext().actorOf(Props.create(PrimerWorker.class));
+            ActorRef workerActor = getContext().actorOf(Props.create(PrimerWorker.class, i));
             routees.add(new ActorRefRoutee(workerActor));
         }
 
