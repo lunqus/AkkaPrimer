@@ -1,5 +1,7 @@
 import akka.actor.AbstractActor;
 
+import java.util.ArrayList;
+
 public class PrimerWorker extends AbstractActor {
 
     int id;
@@ -17,6 +19,18 @@ public class PrimerWorker extends AbstractActor {
 
     private void onReceive(Object message) {
         System.out.println("Got message in worker " + id + " message: " + message);
+
+        if(message instanceof int[]) {
+            int[] rangeArray = (int[]) message;
+
+            var from = rangeArray[0];
+            var to = rangeArray[1];
+
+            for (int i = from; i < to; i++) {
+                if(isPrime(i))
+                    System.out.println(i);
+            }
+        }
     }
 
     private boolean isPrime(int num) {
